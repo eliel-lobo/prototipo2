@@ -1,0 +1,801 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- saved from url=(0046)http://www.bdmusica.eafit.edu.co/busquedagnral -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+                <title></title>
+        <link rel="shortcut icon" href="http://www.bdmusica.eafit.edu.co/favicon.ico">
+        <link rel="stylesheet" type="text/css" media="screen" href="./busquedagnral_files/reset.css">
+<link rel="stylesheet" type="text/css" media="screen" href="./busquedagnral_files/portalmusica.css">
+<link rel="stylesheet" type="text/css" media="screen" href="./busquedagnral_files/grids-min.css">
+<link rel="stylesheet" type="text/css" media="screen" href="./busquedagnral_files/jquery.lightbox-0.5.css">
+<link rel="stylesheet" type="text/css" media="screen" href="./css.css">
+        <script type="text/javascript" src="./busquedagnral_files/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="./busquedagnral_files/jquery.easing.min.js"></script>
+<script type="text/javascript" src="./busquedagnral_files/jquery.lightbox-0.5.js"></script>
+<script type="text/javascript" src="./busquedagnral_files/jquery.corner.js"></script>
+<script type="text/javascript" src="./busquedagnral_files/hacktl.js"></script>
+<script type="text/javascript" src="./prototipo.js"></script>
+            <script type="text/javascript">
+
+        if (!window.console) { 
+            window.console = { log: function() {} };
+        }
+    </script>
+
+   <style type="text/css">
+   #custom-doc { width: 60em; min-width: 30em; } /* Check on Mac */
+   </style>
+                <meta http-equiv="Content-Style-Type" content="text/css">
+
+    <!-- Top Menu -->
+    <style>
+        /*body { font-family:Arial, Helvetica, Sans-Serif; font-size:12px; margin:0px 20px;}*/
+        /* menu 4b5c63 */
+        #menu{ margin:0px; padding:0px; list-style:none; color:#fff; line-height:45px; display:inline-block; float:left; z-index:1000; }
+        #menu a { color:#fff; text-decoration:none; }
+        #menu > li {background:#4b5c63  none repeat scroll 0 0; cursor:pointer; float:left; position:relative;padding:0px 10px;}
+        #menu > li a:hover {color:#dfc056;}
+        #menu .logo {background:transparent none repeat scroll 0% 0%; padding:0px; background-color:Transparent;}
+        /* sub-menus*/
+        #menu ul { padding:0px; margin:0px; display:block; display:inline;}
+        #menu li ul { position:absolute; left:-10px; top:0px; margin-top:45px; width:150px; line-height:16px; background-color:#172322; color:#0395CC; /* for IE */ display:none; }
+        #menu li:hover ul { display:block;}
+        #menu li ul li{ display:block; margin:5px 20px; padding: 5px 0px;  border-top: dotted 1px #606060; list-style-type:none; }
+        #menu li ul li:first-child { border-top: none; }
+        #menu li ul li a { display:block; color:#0395CC; }
+        #menu li ul li a:hover { color:#7FCDFE; }
+        /* main submenu */
+        #menu #main { left:0px; top:-20px; padding-top:20px; background-color:#7cb7e3; color:#fff; z-index:999;}
+        /* search */
+        .searchContainer div { background-color:#fff; display:inline; padding:5px;}
+        .searchContainer input[type="text"] {border:none;}
+        .searchContainer img { vertical-align:middle;}
+        /* corners*/
+        #menu .corner_inset_left { position:absolute; top:0px; left:-12px;}
+        #menu .corner_inset_right { position:absolute; top:0px; left:150px;}
+        #menu .last { background:transparent none repeat scroll 0% 0%; margin:0px; padding:0px; border:none; position:relative; border:none; height:0px;}
+        #menu .corner_left { position:absolute; left:0px; top:0px;}
+        #menu .corner_right { position:absolute; left:132px; top:0px;}
+        #menu .middle { position:absolute; left:18px; height: 20px; width: 115px; top:0px;}
+    </style>
+    <link rel="icon" type="image/png" href="http://www.bdmusica.eafit.edu.co/images/eafit16x16.png">
+
+    </head>
+    <body>
+
+    <img src="./busquedagnral_files/beta.png" alt="beta" style="z-index:1000; top: 0px; left: 0px; position:fixed">
+
+    <form id="busq_gral" name="buesqueda_gral" action="./busquedagnral_files/busquedagnral.html" method="post">
+    <div class="menu_box" style="margin: 0 auto; width: 70em; font-family:Arial, Helvetica, Sans-Serif; font-size:12px; ">
+        <ul id="menu">
+            <li class="logo">
+                <img style="float:left;" alt="" src="./busquedagnral_files/menu_left.png">
+            </li>
+            <li><a href="http://www.bdmusica.eafit.edu.co/linea">Línea de investigación</a></li>
+            <li><a href="http://www.musica.eafit.edu.co/" target="_newtab">Medellín y su música</a></li>
+            <li><a href="http://www.bdmusica.eafit.edu.co/">Biblioteca digital de música</a></li>
+            <li><a href="http://www.bdmusica.eafit.edu.co/biografias">Biografías</a></li>
+            <!--li><a href="#"></a>Revistas</li-->
+            <li><a href="http://www.bdmusica.eafit.edu.co/busquedagnral#"></a>Proyectos</li>
+            <li class="searchContainer">
+                <div>
+                  <input type="text" id="searchField" name="buscar">
+                  <img src="./busquedagnral_files/magnifier.png" alt="Search" onclick="$(&#39;#busq_gral&#39;).submit()">
+                </div>                
+                <a id="but_desplegar" title="busqueda avanazada" href="javascript:desplegar_avanzada()">&nbsp;[+]</a>
+                <input type="hidden" id="avanzada-on-off" value="off">
+            </li>
+        </ul>
+        <img style="float:left;" alt="" src="./busquedagnral_files/menu_right.png">
+    </div>
+    </form>
+
+    <div style="float:none; clear:both;"></div>
+<div id="custom-doc" class="yui-t2">
+    <div id="hd" style="margin-top:2em">
+            <script type="text/javascript">
+head_menu = {
+    set_item : function( name ) {
+        $(".head_menu .head_menu_sel").removeClass("head_menu_sel")
+        $("#head_menu_" + name).removeClass("head_menu_unsel");
+        $("#head_menu_" + name).addClass("head_menu_sel");
+    }
+};
+</script>
+
+<div class="head_menu">
+    <table>
+    <tbody><tr>
+        <td>
+            <img alt="" src="./busquedagnral_files/eafit.png">
+        </td>
+
+        <td>
+
+
+    <h1>Biblioteca Digital de Música</h1>
+    <div>
+        <a class="head_menu_sel" id="head_menu_inicio" href="http://www.bdmusica.eafit.edu.co/">INICIO</a>
+        <a class="head_menu_unsel" id="head_menu_partituras" href="http://www.bdmusica.eafit.edu.co/partituras">PARTITURAS</a>
+        <a class="head_menu_unsel" id="head_menu_prensa" href="http://www.bdmusica.eafit.edu.co/prensa">PRENSA</a>
+        <a class="head_menu_unsel" id="head_menu_progmano" href="http://www.bdmusica.eafit.edu.co/progmano">PROGRAMAS DE MANO</a>
+        <a class="head_menu_unsel" id="head_menu_publicaciones" href="http://www.bdmusica.eafit.edu.co/publicaciones">PUBLICACIONES</a>
+        <a class="head_menu_unsel" id="head_menu_sonido" href="http://www.bdmusica.eafit.edu.co/audio/index">SONIDO</a>
+        <a class="head_menu_unsel" id="head_menu_video" href="http://www.bdmusica.eafit.edu.co/video">VIDEO</a>
+        <a class="head_menu_unsel" id="head_menu_documentos" href="http://www.bdmusica.eafit.edu.co/documentos">DOCUMENTOS</a>
+    </div>
+
+    </td></tr></tbody></table>
+
+</div>
+    </div><!-- hd -->
+    <div id="bd">
+        
+            <!-- Begin: Contenido -->
+            <script type="text/javascript">
+head_menu.set_item("inicio");
+</script>
+<script type="text/javascript">
+//<![CDATA[ 
+    $(function() {
+
+        var count = 0;
+        var ajaxURL = "/busquedagnral/ajaxConsulta";
+        var lastParams = null;
+        var REC_COUNT = 20;
+        var order_params = { "*": "title", "autor":false, "coleccion":false, "title":false };
+
+        if (!window.console) { // Truco para usar sienpre la console
+            window.console = { log: function() {} };
+        }
+
+        $("#menu_todas").click();
+
+        //$("#call_element").click( function(){
+        $(".more").live( "click", function(){
+            //var sfCargaDatosUsuario  = "/progmano/ajaxDatosUsuarioById";
+            //getDatosUsuarioById( sfCargaDatosUsuario, "call_element", "XX");
+            doAjax(false);
+            return false;
+        });
+
+        //Oculta los detalles
+        //$('div.tab_resultados_detalle').hide();
+        $('a.tab_resultado_titulo').click(function() {
+            alert('OK');
+            return;
+            $(this).parent().parent().next().children().toggle();
+        });
+
+        $('#btnBuscar').click(function() {
+            //alert('OK');
+            doAjax(true);
+            return false;
+        });
+
+        $('#ordby_autor,#ordby_title,#ordby_coleccion').click(function() {
+            var currCol = order_params["*"];
+            var col = $(this).attr("id").substr(6);
+            $("#ordby_"+ currCol ).next().html("");
+            console.log(order_params[col]);
+            if ( currCol != col )
+                order_params[col] = false;
+            else
+                order_params[col] = !order_params[col];
+            order_params["*"] = col;
+            doAjax(true);
+            return false;
+        });
+
+        function getAjaxParameters()
+        {
+            result = {};
+
+            result.qry = "zulategui"
+            result._ordCol = order_params["*"];
+            if (order_params[result._ordCol])
+                result._ordType = "desc";
+            else
+                result._ordType = "asc";
+            
+            return result;
+        }
+
+        function refrescarTitulos()
+        {
+            var sel ="#ordby_" + order_params["*"];
+            console.log(sel);
+            if ( order_params[order_params["*"]] )
+                $(sel).next().html("[Z-A]");
+            else
+                $(sel).next().html("[A-Z]");
+        }
+
+        function detalle_id()
+        {
+            return "tab_resultados_detalle_" + count;
+        }
+
+        function getImageContent(docId)
+        {
+            return "<a class='progmano_img' href='/fb/bdm j00342/bdm j00342.html' ><img border='0' height='16' width='16' src='/images/prensa.png' /></a>";
+        }
+
+        function consulta_vacia(cons) {
+            return ( cons.list.totalRegistros == 0 );
+        }
+
+        function prensaImageContent(docId)
+        {
+            return "<a class='prensa_img' href='/images/prensa/"+docId+".jpg' ><img border='0' height='16' width='16' src='/images/prensa.png' /></a>";
+        }
+
+        function partImageContent(docId)
+        {
+            return "<a class='progmano_img' href='/fb/bdm j00342/bdm j00342.html' ><img border='0' height='16' width='16' src='/images/prensa.png' /></a>";
+        }
+
+        function progmanoHREF(docId) 
+        {
+            var img_name = function(s) {
+                return s.substring(0,3) + ' ' + s.substring(3);
+            };
+
+            return  "/fb" + "/" + img_name(docId) +"/"+img_name(docId)+".html";
+        }
+
+        function partiturasHREF(docId)
+        {
+            var img_name = function(s) {
+                return docId.toLowerCase();
+            };
+            return  "/fb" + "/" + img_name(docId) +"/"+img_name(docId)+".html";
+        }
+
+        function getResultHTML(consulta, salt) {
+
+            // TODO: Hacer el trabajo del DOM multiplataforma
+            
+            var result = "";
+            items = consulta.list.i;
+
+            if (!items.length) {
+                items = [ items ];
+            }
+            
+            result = hacktl.expand("\
+{%~ items %}\
+<tr valign='top'>\
+    <td width='520'><a class='tab_resultado_titulo' href='#'> {%= $i.titulo %} </a></td>\
+    <td width='80'> {%= $i.autor %} </td>\
+    <td width='80'> {%= $i.coleccion %} </td>\
+</tr>\
+<tr valign='top'>\
+<td colspan='3'>\
+<div class='{%= $p.detail() %}'>\
+{%? $i.coleccion.indexOf('mano') != -1 %}\
+    <table class='tab_detalle'>\
+    <tr>\
+        <td>Ver Programa de Mano:</td>\
+        <td> <a class='progmano_img' \
+                href='{%= $p.progmanoHREF($i.id) %}'  target='_newtab' ><img border='0' height='16' width='16' src='/images/prensa.png' /></a></td>\
+    </tr>\
+    <tr>\
+        <td>Artista o Agrupación</td>\
+        <td> {%= $i.autor %} </td>\
+    </tr>\
+    <tr>\
+        <td>Interprétes</td>\
+        <td> {%= $i.interprete %} </td>\
+    </tr>\
+    <tr>\
+        <td>Género</td>\
+        <td> {%= $i.genero %} </td>\
+    </tr>\
+    <tr>\
+        <td>Programa</td>\
+        <td> {%= $i.programas %} </td>\
+    </tr>\
+    <tr>\
+        <td>Gestor</td>\
+        <td> {%= $i.gestor %} </td>\
+    </tr>\
+    <tr>\
+        <td>Apoyo a Gestión</td>\
+        <td>{%= $i.apoyo_a_gestion %}</td>\
+    </tr>\
+    <tr>\
+        <td>Lugar</td>\
+        <td> {%= $i.lugar %} </td>\
+    </tr>\
+    <tr>\
+        <td>Ubicación</td>\
+        <td> {%= $i.ubicacion %} </td>\
+    </tr>\
+    <tr>\
+        <td>Identificador</td>\
+        <td> {%= $i.id %} </td>\
+    </tr>\
+    <tr>\
+        <td>Observaciones</td>\
+        <td> {%= $i.Obsv %} </td>\
+    </tr>\
+    <tr>\
+        <td>Palabras Claves</td>\
+        <td> {%= $i.pclave %} </td>\
+    </tr>\
+    <tr>\
+        <td>Fecha</td>\
+        <td> {%= $i.fecha%} </td>\
+    </tr>\
+    </table>\
+{%%}\
+{%? $i.coleccion.indexOf('Prensa') != -1 %}\
+    <table class='tab_detalle'>\
+        <tr>\
+            <td>Ver Imagen</td>\
+            <td> {%= $p.prensaImageContent($i.id) %} </td>\
+        </tr>\
+        <tr>\
+            <td>Publicación</td>\
+            <td> {%= $i.publicacion %} </td>\
+        </tr>\
+        <tr>\
+            <td>Tema</td>\
+            <td> {%= $i.tema %} </td>\
+        </tr>\
+        <tr>\
+            <td>Género</td>\
+            <td> {%= $i.genero %} </td>\
+        </tr>\
+        <tr>\
+            <td>Imagen y Autor</td>\
+            <td> {%= $i.imagenAutor %} </td>\
+        </tr>\
+        <tr>\
+            <td>Lenguaje</td>\
+            <td> {%= $i.lenguaje %} </td>\
+        </tr>\
+        <tr>\
+            <td>Archivo Origen</td>\
+            <td> {%= $i.ArchOrigen %} </td>\
+        </tr>\
+        <tr>\
+            <td>Contribuyente</td>\
+            <td> {%= $i.contribuyente %} </td>\
+        </tr>\
+        <tr>\
+            <td>Cobertura</td>\
+            <td> {%= $i.cobertura %} </td>\
+        </tr>\
+        <tr>\
+            <td>Identificador</td>\
+            <td> {%= $i.id %} </td>\
+        </tr>\
+        <tr>\
+            <td>Fecha</td>\
+            <td> {%= $i.fecha%} </td>\
+        </tr>\
+    </table>\
+{%%}\
+{%? $i.coleccion.indexOf('Partituras') != -1 %}\
+    <table class='tab_detalle'>\
+        <tr>\
+            <td>Ver Partitura:</td>\
+            <td>\
+               <a href='{%= $p.partiturasHREF($i.id) %}' target='_newtab' >\
+                    <img border='0' height='16' width='16' src='/images/partituras.png' />\
+                </a>\
+            </td>\
+        </tr>\
+        <tr>\
+            <td>Copista</td>\
+            <td>{%= $i.copista %}</td>\
+        </tr>\
+        <tr>\
+            <td>Lenguaje</td>\
+            <td>{%= $i.lenguaje %}</td>\
+        </tr>\
+        <tr>\
+            <td>Género</td>\
+            <td>{%= $i.genero %}</td>\
+        </tr>\
+        <tr>\
+            <td>Instrumentación</td>\
+            <td>{%= $i.instrumentacion %}</td>\
+        </tr>\
+        <tr>\
+            <td>Formato</td>\
+            <td>{%= $i.formato %}</td>\
+        </tr>\
+        <tr>\
+            <td>Ciudad de Edición:</td>\
+            <td>{%= $i.ciudadEdicion %}</td>\
+        </tr>\
+        <tr>\
+            <td>Año de Edición:</td>\
+            <td>{%= $i.anoEdicion %}</td>\
+        </tr>\
+        <tr>\
+            <td>Número de Páginas:</td>\
+            <td>{%= $i.pags %}</td>\
+        </tr>\
+        <tr>\
+            <td>Estado:</td>\
+            <td>{%= $i.estado %}</td>\
+        </tr>\
+        <tr>\
+            <td>Palabras Claves:</td>\
+            <td>{%= $i.pclave %}</td>\
+        </tr>\
+        <tr>\
+            <td>Observaciones</td>\
+            <td>{%= $i.Obsv %}</td>\
+        </tr>\
+        <tr>\
+            <td>Propietario Derechos</td>\
+            <td>{%= $i.propietario %}</td>\
+        </tr>\
+        <tr>\
+            <td>Contribuyente:</td>\
+            <td>{%= $i.contribuyente %}</td>\
+        </tr>\
+        <tr>\
+            <td>Ubicación:</td>\
+            <td>{%= $i.cobertura %}</td>\
+        </tr>\
+        <tr>\
+            <td>Identificador:</td>\
+            <td>{%= $i.id %}</td>\
+        </tr>\
+        <tr>\
+            <td>Clasificación</td>\
+            <td>{%= $i.registroSinbad %}</td>\
+        </tr>\
+        <tr>\
+            <td>Fecha</td>\
+            <td> {%= $i.fecha%} </td>\
+        </tr>\
+    </table>\
+{%%}\
+</div>\
+</td>\
+</tr>\
+{%%}\
+", { 'detail' : detalle_id, 'prensaImageContent': prensaImageContent, 'partImgContent': partImageContent, 'progmanoHREF':progmanoHREF, 'partiturasHREF':partiturasHREF } );
+            return result;
+        }
+
+
+        function doAjax(renew)
+        {
+            refrescarTitulos();
+
+            if (renew) {
+                count = 0;
+                $(".tab_resultados_cuerpo").html("");
+                lastParams = getAjaxParameters();
+            }
+
+            if (lastParams == null) {
+                lastParams = getAjaxParameters();
+            }
+
+            console.log("count: " + count);
+            lastParams._start = count * REC_COUNT + 1;
+            lastParams._count = REC_COUNT;
+
+            $(".more").html("<img src='busquedagnral_files/rotating_arrow.PNG' border='0' />");
+            $.ajax(
+            {
+                url: ajaxURL,
+                data: (lastParams),
+                dataType: "json",
+                success: function (data, status)
+                {
+                    if ( consulta_vacia(data.BusquedaGeneral) ) {
+                        $(".more").html("No hay más registros");
+                        return;
+                    }
+
+                    count++;
+                    //console.log(count);
+                    var htmlContent = getResultHTML(data.BusquedaGeneral);
+                    console.log( htmlContent );
+                    var $content = $(htmlContent);
+                    //$content.filter('div.tab_resultados_detalle').hide();
+                    
+                    $(".tab_resultados_cuerpo").append($content);
+                    //$content.filter('div.tab_resultados_detalle').hide();
+
+                    $content.find('a.tab_resultado_titulo').click( function() {
+                        $(this).parent().parent().next().find('div').toggle(200);
+                        return false;
+                    });
+
+                    //$(".tab_resultados_cuerpo").filter('div.tab_resultados_detalle').hide();
+                    $('div.' + detalle_id() ).hide();
+                    //console.log("Name: " + htmlContent );
+                    //alert(data);
+                    var remain = data.BusquedaGeneral.list.totalRegistros - count * REC_COUNT;
+                    remain = (remain < 0)? 0 : remain;
+                    $(".more").html("Más (" + remain + ")"  );
+                    $('a.prensa_img').lightBox();
+
+                },
+                error: function (data, status, e)
+                {
+                    alert('Ocurrió un error cargando los datos solicitados:.\n'+data.error);
+                }
+            });
+
+        }
+
+        doAjax(true); // TODO: Sera la mejor forma?
+    });
+//]]>
+</script>
+<div class="yui-g">
+    <!-- TODO: table style in css -->
+    <div id="div_avanzada" style="display:none">
+      <table border="0" class="tab_avanzada" cellpadding="0" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+          <td colspan="2"><h1> Busqueda avanzada, cool !!!</h1> </td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class='tab_avanzada_colecciones'>
+            <p style="padding-bottom:5px"><b>Buscar en las colecciones:</b> </p>                      
+            <ul style="display: block; padding:3px">
+              <li> <input type="checkbox"> Partituras</li>
+              <li> <input type="checkbox"> Prensa</li>
+              <li> <input type="checkbox"> Programas de mano</li>
+              <li> <input type="checkbox"> Publicaciones</li>
+              <li> <input type="checkbox"> Sonido</li>
+              <li> <input type="checkbox"> Video</li>
+              <li> <input type="checkbox"> Documentos</li>
+            </ul>            
+          </td>          
+          <td class='td_avanzada_campos'>
+            <div id="div_avanzada_campos">
+            <table>
+              <tr id="titulo">
+                <td class="nom_campo">Título</td>
+                <td>
+                  <div class="div_input">
+                    <input type="text" class="txt_avanzada" size="60">
+                    <image src="about.png" width="14" class="img_about" 
+                      title="El nombre dado a los recursos, por lo general por el Creador o el editor">
+                  </div>
+                </td>
+              </tr>
+              
+              <tr id="creador">
+                <td class="nom_campo">Creador</td>
+                <td>
+                  <div class="div_input">
+                    <input type="text" class="txt_avanzada" size="60">
+                    <image src="about.png" width="14" class="img_about" 
+                      title="El principal responsable (persona u organización) de la creación del contenido intelectual del recurso">
+                  </div>
+                </td>
+              </tr>
+              
+              <tr id="asunto">
+                <td class="nom_campo">Asunto</td>
+                <td>
+                  <div class="div_input">
+                    <input type="text" class="txt_avanzada" size="60">
+                    <image src="about.png" width="14" class="img_about"
+                      title="El tema de los recursos. Por lo general, el asunto se expresa como palabras clave o frases que describen el tema o el contenido del recurso.">
+                  </div>
+                </td>
+              </tr>
+              
+              <tr id="descripcion">
+                <td class="nom_campo">Descripción</td>
+                <td>
+                  <div class="div_input">
+                    <input type="text" class="txt_avanzada" size="60">
+                    <image src="about.png" width="14" class="img_about"
+                      title="Una descripción textual del contenido del recurso">
+                  </div>
+                </td>
+              </tr>
+              
+              <tr id="editor">
+                <td class="nom_campo">Editor</td>
+                <td>
+                  <div class="div_input">
+                    <input type="text" class="txt_avanzada" size="60">
+                    <image src="about.png" width="14" class="img_about"
+                      title="La entidad responsable de los recursos disponibles en su forma actual.">
+                  </div>
+                </td>
+              </tr>
+              
+              <tr id="colaborador">
+                <td class="nom_campo">Colaborador</td>
+                <td>
+                  <div class="div_input">
+                    <input type="text" class="txt_avanzada" size="60">
+                    <image src="about.png" width="14" class="img_about">
+                  </div>
+                </td>
+              </tr>
+              
+              <tr id="fecha">
+                <td class="nom_campo">Fecha <i>AAAA-MM-DD</i></td>
+                <td>
+                  <div class="div_input">
+                    <input type="text" class="txt_avanzada" size="60">
+                    <image src="about.png" width="14" class="img_about">
+                  </div>
+                </td>
+              </tr>
+              
+              <tr id="tipo">
+                <td class="nom_campo">Tipo</td>
+                <td>
+                  <div class="div_input">
+                    <input type="text" class="txt_avanzada" size="60">
+                    <image src="about.png" width="14" class="img_about">
+                  </div>
+                </td>
+              </tr>
+              
+              <tr id="formato">
+                <td class="nom_campo">Formato</td>
+                <td>
+                  <div class="div_input">
+                    <input type="text" class="txt_avanzada" size="60">
+                    <image src="about.png" width="14" class="img_about">
+                  </div>
+                </td>
+              </tr>
+              
+              <tr id="fuente">
+                <td class="nom_campo">Fuente</td>
+                <td>
+                  <div class="div_input">
+                    <input type="text" class="txt_avanzada" size="60">
+                    <image src="about.png" width="14" class="img_about">
+                  </div>
+                </td>
+              </tr>
+              
+              <tr id="idioma">
+                <td class="nom_campo">Idioma</td>
+                <td>
+                  <div class="div_input">
+                    <input type="text" class="txt_avanzada" size="60">
+                    <image src="about.png" width="14" class="img_about">
+                  </div>
+                </td>
+              </tr>
+              
+              <tr id="relacion">
+                <td class="nom_campo">Relación</td>
+                <td>
+                  <div class="div_input">
+                    <input type="text" class="txt_avanzada" size="60">
+                    <image src="about.png" width="14" class="img_about">
+                  </div>
+                </td>
+              </tr>
+              
+              <tr id="derechos">
+                <td class="nom_campo">Derechos</td>
+                <td>
+                  <div class="div_input">
+                    <input type="text" class="txt_avanzada" size="60">
+                    <image src="about.png" width="14" class="img_about">
+                  </div>
+                </td>
+              </tr>
+              
+            </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">            
+            <div align="center">
+              <input type="button" value="Buscar" class="but_buscar" onclick="buscar()">    
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <table border="0" class="tab_resultados" cellpadding="0" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <td width="40%"><a class="titulo_ord" id="ordby_title" href="http://www.bdmusica.eafit.edu.co/busquedagnral#">Título</a>&nbsp;<a>[A-Z]</a></td>
+                <td width="40%"><a class="titulo_ord" id="ordby_autor" href="http://www.bdmusica.eafit.edu.co/busquedagnral#">Autor</a>&nbsp;<a></a></td>
+                <td width="20%"><a class="titulo_ord" id="ordby_coleccion" href="http://www.bdmusica.eafit.edu.co/busquedagnral#">Colección</a>&nbsp;<a></a></td>
+            </tr>
+        </thead>
+        <tbody class="tab_resultados_cuerpo"><tr valign="top">    <td width="520"><a class="tab_resultado_titulo" href="http://www.bdmusica.eafit.edu.co/busquedagnral#"> El Concurso Nacional de Fabricato </a></td>    <td width="80"> Vega Bustamante, Rafael </td>    <td width="80"> Prensa </td></tr><tr valign="top"><td colspan="3"><div class="tab_resultados_detalle_1" style="display: none; ">    <table class="tab_detalle">        <tbody><tr>            <td>Ver Imagen</td>            <td> <a class="prensa_img" href="http://www.bdmusica.eafit.edu.co/images/prensa/BDM%20U02758.jpg"><img border="0" height="16" width="16" src="./busquedagnral_files/prensa.png"></a> </td>        </tr>        <tr>            <td>Publicación</td>            <td> El Colombiano </td>        </tr>        <tr>            <td>Tema</td>            <td> Acerca del Concurso de música colombiana de Fabricato y la presentación de las obras ganadoras en el Teatro Junín; los ganadores fueron Jorge Camargo Spolidore, Luis Uribe Bueno, Jorge Lalinde, Luis Miguel de Zulategui, Guillermo Uribe Holguín, Ernesto Calvo Escobar, Luis A. Escobar y Guillermo Quevedo </td>        </tr>        <tr>            <td>Género</td>            <td> Comentario </td>        </tr>        <tr>            <td>Imagen y Autor</td>            <td>  </td>        </tr>        <tr>            <td>Lenguaje</td>            <td> es-co </td>        </tr>        <tr>            <td>Archivo Origen</td>            <td> Rafael Vega Bustamante </td>        </tr>        <tr>            <td>Contribuyente</td>            <td> Rafael Vega Bustamante </td>        </tr>        <tr>            <td>Cobertura</td>            <td> Medellín, Biblioteca Luis Echavarría Villegas, Sala de Patrimonio Documental, Archivo Rafael Vega Bustamante </td>        </tr>        <tr>            <td>Identificador</td>            <td> BDM U02758 </td>        </tr>        <tr>            <td>Fecha</td>            <td> 1948/08/XX </td>        </tr>    </tbody></table></div></td></tr><tr valign="top">    <td width="520"><a class="tab_resultado_titulo" href="http://www.bdmusica.eafit.edu.co/busquedagnral#"> Primer día de la Semana del Arte 1943 </a></td>    <td width="80"> Vélez, María E.; Vélez, Josefina; Berdugo, Dolly; Vélez, Diego; Mejía, Oscar; Henao, Felipe; Soto, Jorge E.; Gómez, Hernando; Scarpetta, Lucía; Mejía, Jorge M.; Echeverri, Olga L.; Scarpetta, Amparo; Aramburo, Victoria; Gómez, Darío; Bravo, Pablo;  Londoño, Fernando; Londoño, Oscar; Restrepo, Axel; Pablo Bravo; Zulategui, Luis Miguel de </td>    <td width="80"> Programas de mano </td></tr><tr valign="top"><td colspan="3"><div class="tab_resultados_detalle_1" style="display: none; ">    <table class="tab_detalle">    <tbody><tr>        <td>Ver Programa de Mano:</td>        <td> <a class="progmano_img" href="http://www.bdmusica.eafit.edu.co/fb/bdm%20j00788/bdm%20j00788.html" target="_newtab"><img border="0" height="16" width="16" src="./busquedagnral_files/prensa.png"></a></td>    </tr>    <tr>        <td>Artista o Agrupación</td>        <td> Vélez, María E.; Vélez, Josefina; Berdugo, Dolly; Vélez, Diego; Mejía, Oscar; Henao, Felipe; Soto, Jorge E.; Gómez, Hernando; Scarpetta, Lucía; Mejía, Jorge M.; Echeverri, Olga L.; Scarpetta, Amparo; Aramburo, Victoria; Gómez, Darío; Bravo, Pablo;  Londoño, Fernando; Londoño, Oscar; Restrepo, Axel; Pablo Bravo; Zulategui, Luis Miguel de </td>    </tr>    <tr>        <td>Interprétes</td>        <td> Vélez, María E. Piano; Vélez, Josefina. Piano y campesina;  Berdugo, Dolly. Piano y La margarita; Vélez, Diego. Violín;  Mejía, Oscar. Piano, Hongo,  larva y campesino; Henao, Felipe. Piano; Soto, Jorge E. Ladroncito;  Gómez, Hernando. Ladroncito; Scarpetta, Lucía. Campesina; Mejía, Jorge M.. Campesino, Hongo y San Pedro; Echeverri, Olga L. Campesina; Scarpetta, Amparo. Campesina; Vélez, María E. Campesina; Aramburo, Victoria. Campesina;  Gómez, Darío. Hongo; Bravo, Pablo. Hongo y pareja;  Londoño, Fernando. Hongo y larva; Londoño, Oscar. Hongo y larva; Restrepo, Axel. Hongo y larva; Pablo Bravo, larvas;  Aramburo, Victoria. Pareja; Zulategui, Luis Miguel de. Conferencista </td>    </tr>    <tr>        <td>Género</td>        <td> Solista </td>    </tr>    <tr>        <td>Programa</td>        <td> - Vals para piano (Behr)
+- Gavota para piano (L. M.)
+- Rondó para piano (Kuhlau)
+- Vals para violín (Gillet)
+- Polonesa para piano (J. S. Bach)
+- Minué para piano (Paderewsky)
+- La luna, cuento musical (Grimm - Peracchio. Música de L. Manighetti y Noel Gutiérrez)
+a) El rapto de la luna
+b) Fiesta campestre
+c) En las cavernas
+d) idilio
+- Conferencia: Música Moderna
+- Audición: 
+a) Sinfonía No. 1 (L. V. Beethoven)
+b) Concierto en Re (L. V. Beethoven) </td>    </tr>    <tr>        <td>Gestor</td>        <td> Instituto de Bellas Artes </td>    </tr>    <tr>        <td>Apoyo a Gestión</td>        <td></td>    </tr>    <tr>        <td>Lugar</td>        <td> Sala Beethoven - Instituto Bellas Artes </td>    </tr>    <tr>        <td>Ubicación</td>        <td> Medellín, Biblioteca Luis Echavarría Villegas, Sala de Patrimonio Documental, Colección Programas de mano </td>    </tr>    <tr>        <td>Identificador</td>        <td> bdmj00788 </td>    </tr>    <tr>        <td>Observaciones</td>        <td> Programación para la Semana del Arte. Primer día. 
+Existe una copia en el libro del Instituto de Bellas Artes, "Programas varios 1938 - 1948"
+Pertenece al archivo de Joseph Matza Dusek </td>    </tr>    <tr>        <td>Palabras Claves</td>        <td> Ciclo, Concierto institucional, Discografía, Instrumentistas y cantantes </td>    </tr>    <tr>        <td>Fecha</td>        <td>  </td>    </tr>    </tbody></table></div></td></tr></tbody>
+    </table>
+    <div id="moreid" class="morebox" style="border-top-left-radius: 10px 10px; border-top-right-radius: 10px 10px; border-bottom-left-radius: 10px 10px; border-bottom-right-radius: 10px 10px; ">
+        <a class="more" href="http://www.bdmusica.eafit.edu.co/busquedagnral#">Más (0)</a>
+    </div>
+    <script type="text/javascript">
+        $(".morebox").corner();
+    </script>
+
+</div>
+            <!-- End: Contenido -->
+
+
+    </div><!-- bd -->
+
+    <div id="ft">
+        <div class="pie">
+            <div class="col1">
+                <h1>Universidad EAFIT</h1>
+                <p>Departamento de Música</p>
+                <p>Línea de Investigación en Musicología Histórica</p>
+                <br>
+                <p>www.musica.eafit.com</p>
+                <p>musicologia@eafit.edu.co</p>
+                <p>Teléfono (57) (4) 2619500, Ext 9442 - 9998</p>
+                <p>Dirección: Carrera 49 - 7 sur 50</p>
+                <p>Medellín - Colombia - Suramérica</p>
+                <p> Copyright 2006 Universidad EAFIT </p>
+            </div>
+            <div class="col2">
+                <h1>Línea de Investigación</h1>
+                <p><a href="http://www.bdmusica.eafit.edu.co/linea">Inicio</a></p>
+                <p><a href="http://www.bdmusica.eafit.edu.co/linea/proyectos">Proyectos</a></p>
+                <p><a href="http://www.bdmusica.eafit.edu.co/linea/productos">Productos</a></p>
+                <p><a href="http://www.bdmusica.eafit.edu.co/linea/integrantes">Integrantes</a></p>
+                <p><a href="http://www.bdmusica.eafit.edu.co/linea/agenda">Novedades</a></p>
+            </div>
+            <div class="col3">
+                <h1>Biblioteca Digital</h1>
+                <p><a href="http://www.bdmusica.eafit.edu.co/partituras">Partituras</a></p>
+                <p><a href="http://www.bdmusica.eafit.edu.co/prensa">Prensa</a></p>
+                <p><a href="http://www.bdmusica.eafit.edu.co/progmano">Programas de mano</a></p>
+                <p><a href="http://www.bdmusica.eafit.edu.co/publicaciones">Publicaciones</a></p>
+                <p><a href="http://www.bdmusica.eafit.edu.co/audio">Sonido</a></p>
+                <p><a href="http://www.bdmusica.eafit.edu.co/video">Video</a></p>
+            </div>
+            <div class="col4">
+                <h1>Proyectos</h1>
+            </div>
+            <div class="col5">
+                <h1>Revista Digital</h1>
+            </div>
+            <div class="col6">
+                <h1>Alianzas</h1>
+            </div>
+        </div> <!-- pie -->
+
+    </div> <!-- ft -->
+</div> <!-- doc -->
+
+
+    
+
+
+</body></html>

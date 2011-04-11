@@ -1,0 +1,83 @@
+body
+{
+background-image:url('./images/background_dark.jpg');
+background-repeat:no-repeat;
+}
+
+.tab_avanzada {
+/*    background-color: #485b62;
+    filter: alpha(opacity = 50);*/
+    background: rgba(72, 91, 98, 0.7);
+}
+
+.tab_avanzada > TBODY * TD{ 
+    padding: 7px 7px 7px 7px;
+}
+
+.tab_avanzada > THEAD * TD{ 
+    padding: 7px 7px 14px 7px;
+    text-align: center;
+    font-size: 18pt !important;
+}
+
+.tab_avanzada_colecciones {
+    width: 25%;
+    vertical-align: top;  
+}
+
+/* el area para ingresar las busquedas en cada campo */
+.td_avanzada_campos {    
+    border-left: 1px solid gray;
+    padding: 7px;
+}
+
+/*  un div que encierra los filtros de busqueda avanzada */
+#div_avanzada_campos{
+    height:175px;
+    overflow:auto;  
+}
+
+.but_buscar {
+    font-family: verdana;
+    font-size: 10pt;
+    padding: 3px 6px 3px 6px;
+    border: none;
+}
+
+/* columna con el nombre del campo dublin core */
+.nom_campo{
+    width: 160px;
+}
+
+.txt_avanzada{
+    border: none;
+    font-size: 12px;
+    margin:0px;
+    padding:0px;
+}
+
+.img_about{ 
+    opacity: 0.3;
+    margin-top:2px;
+}
+
+.img_about:hover{ opacity: 1; }
+
+.div_input{
+    background-color: white;
+    padding: 0px 4px 4px 4px;
+    margin:0px;
+    height:18px;
+    border:none;
+}
+
+#div_avanzada {
+    /*background-color: #485b62;*/    
+    background: rgb(72, 91, 98);
+    background: rgba(72, 91, 98, 0.7);
+    -moz-border-radius: 9px; -webkit-border-radius: 9px;
+    padding:5px;
+    margin-bottom : 9px;
+}
+
+
